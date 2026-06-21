@@ -18,6 +18,11 @@ button, a { color: inherit; font: inherit; }
 a { text-decoration: none; }
 button { cursor: pointer; }
 
+.splashScreen { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; overflow: hidden; background: #060b18; opacity: 1; transition: opacity 300ms ease; }
+.splashLeaving { opacity: 0; pointer-events: none; }
+.splashArtwork { position: relative; width: min(100vw, 620px); height: 100dvh; background: #060b18; }
+.splashArtwork img { object-fit: contain; }
+
 main { min-height: 100vh; padding-bottom: 104px; background: radial-gradient(circle at 52% -20%, #15254a 0, transparent 30%), var(--bg); }
 .appHeader { height: 76px; position: sticky; top: 0; z-index: 20; padding: 0 max(24px, calc((100vw - 1180px) / 2)); display: flex; align-items: center; gap: 24px; background: rgba(6,11,24,.82); border-bottom: 1px solid rgba(71,89,130,.28); backdrop-filter: blur(18px); }
 .wordmark { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.5px; }

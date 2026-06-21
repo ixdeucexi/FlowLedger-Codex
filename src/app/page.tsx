@@ -1,3 +1,5 @@
+import { SplashScreen } from "./SplashScreen";
+
 const upcomingBills = [
   { name: "Pest Control", due: "Due today", amount: "$36" },
   { name: "Utilities", due: "Due today", amount: "$370" },
@@ -21,6 +23,7 @@ const nav = [
 export default function Home() {
   return (
     <main id="dashboard">
+      <SplashScreen />
       <header className="appHeader">
         <a className="wordmark" href="#dashboard"><span>F</span>FlowLedger</a>
         <div className="headerMeta"><span className="liveDot" />Your June plan is live</div>
