@@ -1,0 +1,7 @@
+.vercel
+node_modules
+work
+outputs
+.DS_Store
+Thumbs.db
+
