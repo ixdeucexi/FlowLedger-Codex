@@ -23,7 +23,7 @@ export function SplashScreen() {
     <div className={`splashScreen${leaving ? " splashLeaving" : ""}`} aria-hidden="true">
       <div className="splashArtwork">
         <Image
-          src="/flowledger-splash.png"
+          src="/flowledger-splash-logo.png"
           alt=""
           fill
           priority
