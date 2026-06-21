@@ -23,10 +23,11 @@ export function SplashScreen() {
     <div className={`splashScreen${leaving ? " splashLeaving" : ""}`} aria-hidden="true">
       <div className="splashArtwork">
         <Image
-          src="/flowledger-splash-logo.png"
+          src="/flowledger-splash-logo.jpg"
           alt=""
           fill
           priority
+          unoptimized
           sizes="(max-width: 620px) 100vw, 620px"
         />
       </div>
