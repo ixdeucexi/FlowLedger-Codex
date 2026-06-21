@@ -1,89 +1,97 @@
-const bills = [
-  { name: "Studio rent", category: "Housing", amount: "$1,240", due: "Due Jul 1", tone: "mint" },
-  { name: "Internet", category: "Utilities", amount: "$68", due: "Due Jul 6", tone: "gold" },
-  { name: "Car insurance", category: "Insurance", amount: "$184", due: "Due Jul 9", tone: "lavender" },
+const upcomingBills = [
+  { name: "Pest Control", due: "Due today", amount: "$36" },
+  { name: "Utilities", due: "Due today", amount: "$370" },
+  { name: "Sinking Transfer", due: "Due tomorrow", amount: "$50" },
+  { name: "La’Kia", due: "Due tomorrow", amount: "$791" },
 ];
 
-const bars = [58, 67, 54, 72, 64, 81, 76, 69, 62, 73, 68, 78];
+const goals = [
+  { name: "Christmas", target: "$2,000", saved: "$720", progress: 36 },
+  { name: "Emergency fund", target: "$8,000", saved: "$3,440", progress: 43 },
+];
 
-function Icon({ children }: { children: React.ReactNode }) {
-  return <span className="icon" aria-hidden="true">{children}</span>;
-}
+const nav = [
+  { label: "Dashboard", icon: "▥", href: "#dashboard" },
+  { label: "Bills", icon: "▤", href: "#bills" },
+  { label: "Debt", icon: "▭", href: "#debt" },
+  { label: "Monthly", icon: "□", href: "#monthly" },
+  { label: "More", icon: "•••", href: "#more" },
+];
 
 export default function Home() {
   return (
-    <main>
-      <aside className="sidebar">
-        <a className="brand" href="#top" aria-label="FlowLedger home">
-          <span className="brandMark">↗</span>
-          <span>FlowLedger</span>
-        </a>
+    <main id="dashboard">
+      <header className="appHeader">
+        <a className="wordmark" href="#dashboard"><span>F</span>FlowLedger</a>
+        <div className="headerMeta"><span className="liveDot" />Your June plan is live</div>
+        <button className="profile" aria-label="Open profile">JD</button>
+      </header>
 
-        <nav aria-label="Main navigation">
-          <a className="navItem active" href="#overview"><Icon>⌂</Icon>Overview</a>
-          <a className="navItem" href="#bills"><Icon>▤</Icon>Bills</a>
-          <a className="navItem" href="#planning"><Icon>◫</Icon>Planning</a>
-          <a className="navItem" href="#goals"><Icon>◎</Icon>Goals</a>
-        </nav>
+      <div className="shell">
+        <section className="intro">
+          <div><p className="kicker">Personal cash flow</p><h1>FlowLedger</h1><p>June 2026</p></div>
+          <button className="addButton" aria-label="Add an item">＋</button>
+        </section>
 
-        <div className="sideNote">
-          <span className="lock">✓</span>
-          <div><strong>Private by design</strong><p>Your financial picture stays yours.</p></div>
-        </div>
-      </aside>
-
-      <section className="workspace" id="top">
-        <header className="topbar">
-          <div className="mobileBrand"><span className="brandMark">↗</span>FlowLedger</div>
-          <div className="status"><span className="statusDot" />July plan is on track</div>
-          <button className="avatar" aria-label="Open profile">JD</button>
-        </header>
-
-        <div className="content" id="overview">
-          <div className="hero">
-            <div>
-              <p className="eyebrow">Monday, July 6</p>
-              <h1>Good morning, Jordan.</h1>
-              <p className="subhead">Here&apos;s what your money is doing this month.</p>
-            </div>
-            <button className="primaryButton"><span>＋</span>Add transaction</button>
+        <section className="balanceCard" aria-label="Current balance summary">
+          <div className="balanceOrb one" /><div className="balanceOrb two" />
+          <p>BALANCE TODAY</p>
+          <strong>$3,761</strong>
+          <div className="balanceDetails">
+            <div><span>END OF MONTH</span><b>$4,917</b></div>
+            <div><span>LOWEST BALANCE</span><b>$2,211 · Jun 10</b></div>
           </div>
+          <div className="balanceProgress"><i /></div>
+          <small>30% of bills paid this month</small>
+        </section>
 
-          <section className="metrics" aria-label="Monthly summary">
-            <article className="metricCard featured">
-              <div className="metricTop"><span>Available to spend</span><span className="trend">↗ 8.4%</span></div>
-              <strong>$2,846</strong>
-              <p>after bills and goals</p>
-              <div className="spark"><i /><i /><i /><i /><i /><i /><i /><i /><i /></div>
-            </article>
-            <article className="metricCard"><div className="metricIcon income">↓</div><span>Income</span><strong>$5,420</strong><p>2 deposits this month</p></article>
-            <article className="metricCard"><div className="metricIcon billsIcon">▤</div><span>Bills</span><strong>$1,874</strong><p>7 of 10 paid</p><div className="progress"><i style={{ width: "70%" }} /></div></article>
-            <article className="metricCard"><div className="metricIcon goalsIcon">◎</div><span>Goals</span><strong>$700</strong><p>13% of monthly income</p></article>
+        <section className="statGrid">
+          <article><strong className="blue">$5,051</strong><span>Bills</span></article>
+          <article><strong className="green">$1,530</strong><span>Paid</span></article>
+          <article><strong className="yellow">$3,521</strong><span>Unpaid</span></article>
+          <article className="debtStat" id="debt"><div><span>Debt</span><strong className="red">$265,644</strong></div><b>›</b></article>
+        </section>
+
+        <section className="quickActions">
+          <a href="#bills"><span className="actionIcon blueBox">ϟ</span><div><b>What can I do?</b><small>Find your next best money move</small></div><strong>›</strong></a>
+          <a href="#monthly"><span className="actionIcon greenBox">↗</span><div><b>Can I afford this?</b><small>Check your balance on any date</small></div><strong>›</strong></a>
+        </section>
+
+        <div className="dashboardColumns">
+          <section id="bills">
+            <div className="sectionHeading"><div><p className="kicker">Next seven days</p><h2>Upcoming Bills</h2></div><a href="#monthly">View all</a></div>
+            <div className="listCard">
+              {upcomingBills.map((bill) => (
+                <article className="billRow" key={bill.name}>
+                  <span className="calendarIcon">□</span>
+                  <div><b>{bill.name}</b><small>{bill.due}</small></div>
+                  <strong>{bill.amount}</strong><i>›</i>
+                </article>
+              ))}
+            </div>
           </section>
 
-          <section className="dashboardGrid">
-            <article className="panel cashPanel" id="planning">
-              <div className="panelHeading"><div><p className="eyebrow">Cash flow</p><h2>Your month, at a glance</h2></div><button className="textButton">View details →</button></div>
-              <div className="chartSummary"><div><span>Money in</span><strong>$5,420</strong></div><div><span>Money out</span><strong>$2,574</strong></div><div><span>Remaining</span><strong className="positive">$2,846</strong></div></div>
-              <div className="barChart" aria-label="Twelve month cash flow chart">{bars.map((height, index) => <div className="barColumn" key={index}><i style={{ height: `${height}%` }} /><span>{"JFMAMJJASOND"[index]}</span></div>)}</div>
-            </article>
+          <section>
+            <div className="sectionHeading"><div><p className="kicker">Looking ahead</p><h2>Financial Outlook</h2></div></div>
+            <article className="outlookCard"><span className="calendarIcon yellowIcon">□</span><div><small>LARGEST UPCOMING BILL</small><b>La’Kia — $791 due Jun 4</b></div></article>
 
-            <article className="panel billsPanel" id="bills">
-              <div className="panelHeading"><div><p className="eyebrow">Coming up</p><h2>Next bills</h2></div><button className="roundButton" aria-label="View all bills">→</button></div>
-              <div className="billList">{bills.map((bill) => <div className="bill" key={bill.name}><span className={`billMark ${bill.tone}`}>{bill.name[0]}</span><div><strong>{bill.name}</strong><p>{bill.category} · {bill.due}</p></div><b>{bill.amount}</b></div>)}</div>
-              <div className="billFooter"><span><i />3 bills remaining</span><strong>$1,492</strong></div>
-            </article>
-          </section>
-
-          <section className="goalsPanel" id="goals">
-            <div><p className="eyebrow">Build what&apos;s next</p><h2>Goals worth looking forward to</h2><p className="goalCopy">Small, steady moves add up. You&apos;re already 41% of the way there.</p></div>
-            <div className="goalCards">
-              <article><div className="goalIcon">⌂</div><span>Emergency fund</span><strong>$4,100 <small>/ $8,000</small></strong><div className="progress"><i style={{ width: "51%" }} /></div></article>
-              <article><div className="goalIcon sun">✦</div><span>Coastal getaway</span><strong>$1,240 <small>/ $3,500</small></strong><div className="progress goldProgress"><i style={{ width: "35%" }} /></div></article>
+            <div className="sectionHeading goalsHeading"><div><p className="kicker">Build what’s next</p><h2>Financial Goals</h2></div><button>＋ Add Goal</button></div>
+            <div className="goalList">
+              {goals.map((goal) => (
+                <article className="goalCard" key={goal.name}>
+                  <div className="goalTop"><div><b>{goal.name}</b><small>Target: {goal.target}</small></div><strong>{goal.saved}</strong></div>
+                  <div className="goalBar"><i style={{ width: `${goal.progress}%` }} /></div>
+                  <div className="afford"><span>✓</span><div><b>You can afford this</b><small>Projected balance supports this goal</small></div></div>
+                </article>
+              ))}
             </div>
           </section>
         </div>
-      </section>
+      </div>
+
+      <nav className="bottomNav" aria-label="Main navigation">
+        {nav.map((item, index) => <a className={index === 0 ? "active" : ""} href={item.href} key={item.label}><span>{item.icon}</span><b>{item.label}</b></a>)}
+      </nav>
     </main>
   );
 }
