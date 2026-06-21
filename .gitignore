@@ -1,7 +1,12 @@
-.vercel
-node_modules
-work
-outputs
+node_modules/
+.next/
+out/
+.vercel/
+*.tsbuildinfo
+.env*
+!.env.example
 .DS_Store
 Thumbs.db
+work/
+outputs/
 

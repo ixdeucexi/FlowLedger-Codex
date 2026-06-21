@@ -1,0 +1,145 @@
+:root {
+  --ink: #14221d;
+  --muted: #728078;
+  --line: #dce5df;
+  --canvas: #f2f5f1;
+  --paper: #fbfcfa;
+  --forest: #153c32;
+  --mint: #9be4c9;
+  --mint-soft: #dff5eb;
+  --gold: #e9b95d;
+  --lavender: #aaa1e8;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); background: var(--canvas); font-family: "Avenir Next", "Segoe UI", sans-serif; }
+button, a { font: inherit; }
+button { color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+main { min-height: 100vh; display: grid; grid-template-columns: 230px minmax(0, 1fr); }
+.sidebar { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; padding: 30px 22px; background: var(--forest); color: #f6fbf8; }
+.brand { display: flex; align-items: center; gap: 11px; font-family: "Avenir Next", "Segoe UI", sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -.5px; margin: 0 8px 46px; }
+.brandMark { width: 34px; height: 34px; border-radius: 11px; display: inline-grid; place-items: center; color: var(--forest); background: var(--mint); font-size: 18px; box-shadow: 0 8px 26px #0b2921; }
+nav { display: grid; gap: 7px; }
+.navItem { display: flex; align-items: center; gap: 12px; padding: 12px 13px; border-radius: 12px; color: #a9beb5; font-size: 13px; font-weight: 600; transition: .2s ease; }
+.navItem:hover, .navItem.active { color: white; background: #214d40; }
+.navItem.active { box-shadow: inset 3px 0 var(--mint); }
+.icon { width: 22px; font-size: 17px; text-align: center; color: var(--mint); }
+.sideNote { margin-top: auto; padding: 16px; display: flex; gap: 11px; border: 1px solid #315c50; border-radius: 16px; background: #1a4539; }
+.sideNote strong { display: block; font-size: 11px; }
+.sideNote p { color: #9db7ad; font-size: 10px; line-height: 1.5; margin: 3px 0 0; }
+.lock { width: 25px; height: 25px; border-radius: 50%; display: grid; place-items: center; background: var(--mint-soft); color: var(--forest); font-size: 11px; flex: 0 0 auto; }
+
+.workspace { min-width: 0; }
+.topbar { height: 76px; display: flex; align-items: center; justify-content: flex-end; padding: 0 clamp(24px, 4vw, 58px); border-bottom: 1px solid var(--line); background: rgba(242,245,241,.88); backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 10; }
+.mobileBrand { display: none; align-items: center; gap: 10px; font-family: "Avenir Next", "Segoe UI", sans-serif; font-weight: 800; }
+.status { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 11px; font-weight: 600; margin-right: 20px; }
+.statusDot { width: 7px; height: 7px; border-radius: 50%; background: #50bc8c; box-shadow: 0 0 0 4px #dcf2e8; }
+.avatar { width: 37px; height: 37px; border: 0; border-radius: 50%; background: #d9e5df; font-size: 11px; font-weight: 800; cursor: pointer; }
+.content { width: min(1300px, 100%); padding: 46px clamp(24px, 4vw, 58px) 80px; margin: 0 auto; }
+.hero { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; margin-bottom: 32px; }
+.eyebrow { margin: 0 0 8px; color: #588075; font-size: 10px; font-weight: 800; letter-spacing: 1.35px; text-transform: uppercase; }
+h1, h2 { font-family: "Avenir Next", "Segoe UI", sans-serif; }
+h1 { margin: 0; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -2px; }
+h2 { margin: 0; font-size: 19px; letter-spacing: -.6px; }
+.subhead { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+.primaryButton { border: 0; border-radius: 12px; background: var(--forest); color: white; padding: 12px 17px; display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; cursor: pointer; box-shadow: 0 10px 24px rgba(21,60,50,.16); }
+.primaryButton span { color: var(--mint); font-size: 17px; }
+
+.metrics { display: grid; grid-template-columns: 1.35fr repeat(3, 1fr); gap: 14px; margin-bottom: 14px; }
+.metricCard, .panel, .goalsPanel { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 12px 35px rgba(34,60,49,.045); }
+.metricCard { min-height: 155px; padding: 19px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.metricCard > span, .metricTop { color: var(--muted); font-size: 10px; font-weight: 700; }
+.metricCard > strong { font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 25px; letter-spacing: -1px; margin-top: auto; }
+.metricCard > p { color: var(--muted); font-size: 10px; margin: 3px 0 0; }
+.metricCard.featured { background: var(--forest); color: white; border-color: var(--forest); }
+.metricTop { display: flex; justify-content: space-between; color: #a7c1b7; }
+.metricTop .trend { padding: 4px 7px; border-radius: 20px; background: #28594b; color: var(--mint); }
+.featured > strong { font-size: 35px; }
+.spark { height: 35px; margin: 12px -4px -4px; display: flex; align-items: flex-end; gap: 4px; opacity: .8; }
+.spark i { flex: 1; height: 50%; border-top: 2px solid var(--mint); transform: skewY(-8deg); }
+.spark i:nth-child(2), .spark i:nth-child(5), .spark i:nth-child(8) { height: 75%; }
+.spark i:nth-child(3), .spark i:nth-child(6), .spark i:nth-child(9) { height: 90%; }
+.metricIcon { width: 31px; height: 31px; border-radius: 10px; display: grid; place-items: center; margin-bottom: 16px; font-weight: 800; }
+.metricIcon.income { color: #278c67; background: #e0f5ec; }
+.metricIcon.billsIcon { color: #a66e0c; background: #fbefd7; }
+.metricIcon.goalsIcon { color: #6658b5; background: #edeafd; }
+.progress { height: 5px; border-radius: 20px; background: #e8ede9; overflow: hidden; margin-top: 12px; }
+.progress i { display: block; height: 100%; border-radius: inherit; background: #4fb88d; }
+
+.dashboardGrid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(310px, .75fr); gap: 14px; margin-bottom: 14px; }
+.panel { padding: 23px; min-height: 355px; }
+.panelHeading { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+.textButton, .roundButton { border: 0; background: transparent; color: #467c6d; font-size: 10px; font-weight: 800; cursor: pointer; }
+.roundButton { width: 31px; height: 31px; border-radius: 50%; background: #edf3ef; font-size: 14px; }
+.chartSummary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 28px 0 18px; }
+.chartSummary div { padding-left: 12px; border-left: 2px solid #dfe8e2; }
+.chartSummary div:first-child { border-color: #4fb88d; }
+.chartSummary span { display: block; color: var(--muted); font-size: 9px; margin-bottom: 4px; }
+.chartSummary strong { font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 14px; }
+.chartSummary .positive { color: #278c67; }
+.barChart { height: 188px; display: flex; align-items: flex-end; gap: 10px; padding-top: 18px; border-bottom: 1px solid var(--line); background: repeating-linear-gradient(to bottom, transparent 0, transparent 44px, #edf1ee 45px); }
+.barColumn { flex: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 8px; }
+.barColumn i { width: min(22px, 72%); border-radius: 5px 5px 0 0; background: #a8dcc8; transition: .2s; }
+.barColumn:nth-child(7) i { background: var(--forest); }
+.barColumn span { color: var(--muted); font-size: 8px; transform: translateY(18px); }
+.billList { margin-top: 18px; }
+.bill { display: grid; grid-template-columns: 38px 1fr auto; gap: 11px; align-items: center; padding: 14px 0; border-top: 1px solid var(--line); }
+.bill:first-child { border-top: 0; }
+.billMark { width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center; background: var(--mint-soft); color: #28765d; font-weight: 800; font-size: 12px; }
+.billMark.gold { background: #fbefd7; color: #9b6811; }
+.billMark.lavender { background: #ece9fc; color: #6759b8; }
+.bill strong { display: block; font-size: 11px; }
+.bill p { color: var(--muted); font-size: 8px; margin: 4px 0 0; }
+.bill b { font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 12px; }
+.billFooter { display: flex; justify-content: space-between; align-items: center; padding-top: 17px; border-top: 1px solid var(--line); font-size: 10px; }
+.billFooter span { color: var(--muted); }
+.billFooter span i { display: inline-block; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; margin-right: 6px; }
+
+.goalsPanel { padding: 28px; display: grid; grid-template-columns: .75fr 1.25fr; gap: 28px; align-items: center; }
+.goalCopy { color: var(--muted); font-size: 10px; line-height: 1.7; max-width: 270px; margin: 10px 0 0; }
+.goalCards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.goalCards article { padding: 17px; border-radius: 14px; background: #f3f6f3; }
+.goalIcon { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; color: #27765d; background: var(--mint-soft); margin-bottom: 12px; }
+.goalIcon.sun { color: #9b6811; background: #fbefd7; }
+.goalCards span { color: var(--muted); display: block; font-size: 9px; }
+.goalCards strong { display: block; font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 15px; margin-top: 5px; }
+.goalCards small { color: var(--muted); font-size: 9px; font-weight: 600; }
+.goldProgress i { background: var(--gold); }
+
+@media (max-width: 1050px) {
+  .metrics { grid-template-columns: 1fr 1fr; }
+  .dashboardGrid, .goalsPanel { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  main { display: block; }
+  .sidebar { display: none; }
+  .topbar { height: 66px; justify-content: space-between; padding: 0 18px; }
+  .mobileBrand { display: flex; }
+  .mobileBrand .brandMark { width: 30px; height: 30px; }
+  .status { display: none; }
+  .content { padding: 30px 16px 60px; }
+  .hero { align-items: flex-start; flex-direction: column; }
+  .metrics { gap: 10px; }
+  .metricCard { min-height: 145px; }
+  .panel { padding: 18px; }
+  .chartSummary { gap: 4px; }
+  .goalsPanel { padding: 20px; }
+}
+
+@media (max-width: 460px) {
+  .metrics, .goalCards { grid-template-columns: 1fr; }
+  .metricCard { min-height: 135px; }
+  .featured { min-height: 165px; }
+  .chartSummary { grid-template-columns: 1fr; }
+  .chartSummary div { padding: 8px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+  .barChart { gap: 5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
+
