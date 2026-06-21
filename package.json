@@ -1,0 +1,14 @@
+{
+  "name": "flowledger-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A responsive personal cash-flow and debt planning web app.",
+  "scripts": {
+    "dev": "node scripts/server.mjs",
+    "build": "node scripts/verify.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+
